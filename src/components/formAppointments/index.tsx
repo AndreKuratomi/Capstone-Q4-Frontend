@@ -9,10 +9,12 @@ import { Button, ContainerForm } from "./styles";
 import appointmentsImg from "../../assets/appointmentsImg.svg";
 import { FaRegWindowClose } from "react-icons/fa";
 import { useStateContext } from "../../context/States";
+import { useAuth } from "../../context/Auth";
 
 export const FormAppointments = () => {
   const { createAppointments } = useAppointment();
   const { setModalAppointment, modalAppointment } = useStateContext();
+  const { user } = useAuth();
   const [date1, setDate] = useState("".replace("-", "/"));
 
   const {
@@ -54,6 +56,7 @@ export const FormAppointments = () => {
               colorInput
               type="text"
               placeholder="CPF do paciente"
+              value={user?.cpf}
               register={register}
               name="patient"
               error={errors.patient?.message}

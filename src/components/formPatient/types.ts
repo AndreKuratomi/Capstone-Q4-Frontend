@@ -2,10 +2,9 @@ export interface PatientFormProps {
   age: number;
   cpf: string;
   email: string;
-  gender: string;
-  health_insurance: string;
+  sex: string;
+  health_plan: string;
   name: string;
   phone: string;
-  permission: string;
   password: string;
 }

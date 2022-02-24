@@ -9,7 +9,7 @@ import { ProfessionalFormProps } from "./types";
 import { useProfessional } from "../../context/Professional";
 
 export const FormProfessional = () => {
-  const { CreateProfessioanal } = useProfessional();
+  const { CreateProfessional } = useProfessional();
   const {
     register,
     handleSubmit,
@@ -20,8 +20,9 @@ export const FormProfessional = () => {
   });
 
   const onSubmitData = (data: ProfessionalFormProps) => {
-    CreateProfessioanal(data);
-    reset();
+    CreateProfessional(data);
+    // reset();
+    console.log(data);
   };
 
   return (
@@ -50,10 +51,10 @@ export const FormProfessional = () => {
           />
           <Input
             colorInput
-            type="number"
+            type="text"
             placeholder="Especialidade"
             register={register}
-            name="speciality"
+            name="specialty"
             error={errors.speciality?.message}
           />
           <Input
@@ -95,7 +96,7 @@ export const FormProfessional = () => {
             name="passwordConfirm"
             error={errors.passwordConfirm?.message}
           />
-          <ButtonPatient type="submit">Login</ButtonPatient>
+          <ButtonPatient type="submit">Cadastrar</ButtonPatient>
           <LinkBox>
             <Link to="/registermain">Voltar</Link>
             <Link to="/">Voltar para Home</Link>

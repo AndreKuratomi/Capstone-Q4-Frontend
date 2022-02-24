@@ -3,7 +3,7 @@ export interface ProfessionalFormProps {
   name: string;
   email: string;
   phone: string;
-  speciality: string;
+  specialty: string;
   address: string;
   password: string;
 }

@@ -12,6 +12,7 @@ interface FormProps {
   type?: string;
   onChange?: (e: any) => void;
   step?: string;
+  defaultValue?: string;
 }
 
 export const Input = ({
@@ -24,6 +25,7 @@ export const Input = ({
   type,
   onChange,
   step,
+  defaultValue,
   ...rest
 }: FormProps) => {
   return (
@@ -35,6 +37,7 @@ export const Input = ({
           value={value}
           onChange={onChange}
           step={step}
+          defaultValue={defaultValue}
           {...rest}
         />
       </InputBox>

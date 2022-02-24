@@ -33,6 +33,7 @@ export const ContainerForm = styled.div`
       padding: 0;
       margin: -60px -50px 0 -20px;
       color: rgba(85, 110, 230, 1);
+      cursor: pointer;
     }
   }
 
@@ -53,6 +54,8 @@ export const ContainerForm = styled.div`
     justify-content: space-evenly;
     input {
       margin: 2px 0;
+      border: none;
+      width: 100%;
     }
   }
 

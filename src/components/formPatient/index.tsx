@@ -10,7 +10,7 @@ import { PatientFormProps } from "./types";
 
 export const FormPatient = () => {
   const navigate = useNavigate();
-  const { CreatePatient } = usePatient();
+  const { createPatient } = usePatient();
   const {
     register,
     handleSubmit,
@@ -21,14 +21,14 @@ export const FormPatient = () => {
   });
 
   const onSubmitData = (data: PatientFormProps) => {
-    CreatePatient(data, navigate);
-    // reset();
+    createPatient(data, navigate);
+    reset();
   };
 
   return (
     <ContainerForm>
       <form onSubmit={handleSubmit(onSubmitData)}>
-        <div className="test">
+        <div className="header">
           <span>Cadastre-se como paciente</span>
           <img src={login} alt="" />
         </div>
@@ -62,7 +62,7 @@ export const FormPatient = () => {
             type="text"
             placeholder="Genero"
             register={register}
-            name="gender"
+            name="sex"
             error={errors.gender?.message}
           />
           <Input
@@ -86,7 +86,7 @@ export const FormPatient = () => {
             type="text"
             placeholder="Plano de Saúde"
             register={register}
-            name="health_insurance"
+            name="health_plan"
             error={errors.health_insurance?.message}
           />
 

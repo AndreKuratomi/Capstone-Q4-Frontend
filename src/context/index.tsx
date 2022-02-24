@@ -1,3 +1,4 @@
+import { AdminProvider } from "./Admin";
 import { AppointmentsProvider } from "./Appointments";
 import { AuthProvider } from "./Auth";
 import { AuthProviderProps } from "./Auth/types";
@@ -9,11 +10,15 @@ export const Providers = ({ children }: AuthProviderProps) => {
   return (
     <>
       <AuthProvider>
-        <ProfessionalProvider>
-          <PatientProvider>
-            <StatesProvider>{children}</StatesProvider>
-          </PatientProvider>
-        </ProfessionalProvider>
+        <AdminProvider>
+          <ProfessionalProvider>
+            <PatientProvider>
+              <AppointmentsProvider>
+                <StatesProvider>{children}</StatesProvider>
+              </AppointmentsProvider>
+            </PatientProvider>
+          </ProfessionalProvider>
+        </AdminProvider>
       </AuthProvider>
     </>
   );

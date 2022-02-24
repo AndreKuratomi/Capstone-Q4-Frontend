@@ -20,13 +20,13 @@ export const ContainerNavBar = styled.div`
       height: 70%;
       width: 100%;
       margin-left: 15px;
-      overflow-x: hidden;
+      /* overflow-x: hidden; */
     }
 
     .nav ul li {
       display: flex;
       align-items: center;
-      width: 100%;
+      width: 268px;
       margin: 10px 0;
       list-style: none;
       transition: 0.5s;
@@ -39,8 +39,9 @@ export const ContainerNavBar = styled.div`
       align-items: center;
       width: 100%;
       padding: 10px 0;
-
+      z-index: 999;
       background: transparent;
+      /* overflow: hidden; */
       border: none;
       color: rgba(248, 298, 241, 0.9);
       border-top-left-radius: 10px;
@@ -55,24 +56,22 @@ export const ContainerNavBar = styled.div`
     }
 
     .nav ul li:hover {
+      width: 268px;
       background: rgba(248, 298, 241, 0.9);
       color: rgb(31, 96, 203, 100%);
-      border-top-left-radius: 10px;
-      border-bottom-left-radius: 10px;
     }
     .nav ul li button:hover {
+      width: 268px;
       background: rgba(248, 298, 241, 0.9);
       color: rgb(31, 96, 203, 100%);
-      border-top-left-radius: 10px;
-      border-bottom-left-radius: 10px;
     }
   }
   @media only screen and (max-width: 768px) {
     width: 70px;
     overflow-x: hidden;
+
     .boxnav:hover {
       width: 100vw;
-      /* position: absolute; */
     }
     .title {
       display: none;

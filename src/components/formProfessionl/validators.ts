@@ -7,10 +7,10 @@ export const schema = yup.object().shape({
   council_number: yup
     .string()
     .min(7, "CRM deve ter 7 digitos")
-    .max(7, "CRM deve ter 7 digitos")
+    .max(8, "CRM deve ter 8 digitos")
     .required("Campo obrigatório"),
   name: yup.string().required("Campo obrigatório"),
-  speciality: yup.string(),
+  specialty: yup.string(),
   email: yup.string().email("Email inválido").required("Campo obrigatório"),
   phone: yup.string().required("Campo obrigatório"),
   address: yup.string(),

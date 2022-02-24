@@ -6,17 +6,21 @@ export interface ProfessionalProviderProps {
 }
 
 export interface ProfessionalProps {
-  council_number: string;
-  name: string;
-  email: string;
-  phone: string;
-  password: string;
-  specialty: string;
-  address: string;
+  council_number?: string;
+  name?: string;
+  email?: string;
+  phone?: string;
+  password?: string;
+  specialty?: string;
+  address?: string;
 }
 
 export interface ProfessionalDataProps {
-  FilterByProfessional: (identify: string) => void;
-  CreateProfessioanal: (data: ProfessionalFormProps) => void;
+  ProfessionalById: (identify: string) => void;
+  ListAllProfessional: () => void;
+  CreateProfessional: (data: ProfessionalFormProps) => void;
+  DeleteProfessional: (identify: string) => void;
+  GetBySpecialty: (specialty: string) => void;
+  UpdateProfessional: (identify: string, data: ProfessionalFormProps) => void;
   allProfessional: ProfessionalProps[];
 }

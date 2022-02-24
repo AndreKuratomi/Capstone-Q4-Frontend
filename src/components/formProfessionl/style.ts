@@ -7,7 +7,7 @@ export const ContainerForm = styled.div`
   align-items: center;
 
   width: 350px;
-  height: 650px;
+  height: 600px;
 
   background: rgba(248, 248, 251, 1);
   border-radius: 5px;

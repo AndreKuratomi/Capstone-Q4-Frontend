@@ -3,5 +3,6 @@ export interface AppointmentsFormProps {
   professional: string;
   date?: string;
   time?: string;
-  newdate: string;
+  newdate?: string;
+  finished?: boolean;
 }

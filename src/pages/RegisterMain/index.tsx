@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import { ContainerMain } from "./style";
-import { RegisterSecretary } from "../registerSecretary";
+import { RegisterSecretary } from "../RegisterSecretary";
 import { BoxImages } from "./style";
 import paciente from "../../assets/paciente.svg";
 import medico from "../../assets/medico.svg";

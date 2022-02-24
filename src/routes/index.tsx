@@ -1,32 +1,22 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import { DashboardPatient } from "../pages/dashboardPatient";
-import { DashboardProfessional } from "../pages/dashboardProfessional";
-import { DashboardSecretary } from "../pages/dashboardSecretary";
-import { Home } from "../pages/home";
+import { Route, Routes, Navigate } from "react-router-dom";
+import { Dashboard } from "../pages/Dashboard";
+import { Home } from "../pages/Home";
 import { Login } from "../pages/Login";
-import { RegisterMain } from "../pages/registerMain";
-import { RegisterPatient } from "../pages/registerPatient";
-import { RegisterProfessional } from "../pages/registerProfessional";
-import { RegisterSecretary } from "../pages/registerSecretary";
+import { RegisterMain } from "../pages/RegisterMain";
+import { RegisterPatient } from "../pages/RegisterPatient";
+import { RegisterProfessional } from "../pages/RegisterProfessional";
+import { RegisterSecretary } from "../pages/RegisterSecretary";
 
 export default function MainRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Navigate to="/login" />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/dashboardpatient" element={<DashboardPatient />} />
-      <Route
-        path="/dashboardprofessional"
-        element={<DashboardProfessional />}
-      />
-      <Route path="/dashboardadmin" element={<DashboardSecretary />} />
-
+      <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/registermain" element={<RegisterMain />} />
-
-      <Route path="registerpatient" element={<RegisterPatient />} />
-      <Route path="registerprofessional" element={<RegisterProfessional />} />
-      <Route path="registersecretary" element={<RegisterSecretary />} />
+      <Route path="/registerpatient" element={<RegisterPatient />} />
+      <Route path="/registerprofessional" element={<RegisterProfessional />} />
+      <Route path="/registersecretary" element={<RegisterSecretary />} />
 
       <Route path="*" element={<h1>Not found</h1>} />
     </Routes>

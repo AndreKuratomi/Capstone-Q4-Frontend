@@ -11,23 +11,22 @@ const PatientContext = createContext<PatientProviderData>(
 );
 
 export const PatientProvider = ({ children }: PatientProviderProps) => {
-  const { token, user, setUser, identifyUser } = useAuth();
+  const { token, user, setUser } = useAuth();
   const [allPatient, setAllPatient] = useState<[]>([]);
   const navigate = useNavigate();
 
-  const CreatePatient = async (data: PatientFormProps) => {
-    const { age, cpf, email, gender, health_insurance, name, password, phone } =
-      data;
+  const createPatient = async (data: PatientFormProps) => {
+    const { age, cpf, email, sex, health_plan, name, password, phone } = data;
     await api
-      .post("/patients", {
+      .post("/patient", {
         age: age,
         cpf: cpf,
         email: email,
-        gender: gender,
-        health_insurance: health_insurance,
+        sex: sex,
+        health_plan: health_plan,
         name: name,
         phone: phone,
-        permission: "patient",
+        password: password,
       })
       .then((_) => {
         toast.success("Cadastro realizado com sucesso!");
@@ -36,32 +35,47 @@ export const PatientProvider = ({ children }: PatientProviderProps) => {
       .catch((e) => console.log(e, "erro register"));
   };
 
-  const FilterByPatient = async (identify: string) => {
+  const listAllPatients = async () => {
     await api
-      .get(`/patients/${identify}`, {
+      .get(`/patient`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
-        setUser(res.data);
+        setAllPatient(res.data);
       })
       .catch((e) => console.log(e, "erro get by email"));
   };
 
-  useEffect(() => {
-    if (token && identifyUser == "Admin") {
-      api
-        .get("/patients", {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-        .then((res) => console.log(res.data));
+  const updatePatient = async (cpf: string, data: any) => {
+    await api
+      .patch(`/patient/${cpf}`, data)
+      .then((res) => {
+        console.log(res);
+        toast.success("Paciente atualizado com sucesso!");
+      })
+      .catch((err) => console.log(err));
+  };
 
-      FilterByPatient;
-    }
-  }, []);
+  const deletePatient = async (cpf: string) => {
+    await api
+      .delete(`/patient/${cpf}`)
+      .then((res) => {
+        toast.success("Paciente deletado com sucesso!");
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {}, []);
 
   return (
     <PatientContext.Provider
-      value={{ allPatient, FilterByPatient, CreatePatient }}
+      value={{
+        allPatient,
+        listAllPatients,
+        createPatient,
+        updatePatient,
+        deletePatient,
+      }}
     >
       {children}
     </PatientContext.Provider>
